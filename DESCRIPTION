@@ -1,0 +1,24 @@
+Package: gcrules.glpk
+Title: GLPK backend for Globally Consistent Rules (gcrules) package
+Version: 0.0.1
+Authors@R: 
+    person(given = "Robert",
+           family = "Zamora",
+           role = c("aut", "cre"),
+           email = "zamora.rr@gmail.com")
+Description: GLPK backend for Globally Consistent Rules (gcrules) package.
+License: MIT + file LICENSE
+Imports: 
+    Matrix,
+    methods,
+    Rcpp
+Suggests: 
+    testthat (>= 3.0.0)
+LinkingTo: 
+    Rcpp
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
