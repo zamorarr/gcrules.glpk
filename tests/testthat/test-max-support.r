@@ -1,4 +1,4 @@
-test_that("min_set_cover works", {
+test_that("max_support works", {
   x <- matrix(c(1,1,1,1,1,1,1,0,0,1,0,0,1,1,0,1), nrow = 4)
   y <- c(1,1,1,0)
 
@@ -6,15 +6,19 @@ test_that("min_set_cover works", {
   xe <- x[e,]
   ye <- y[e]
 
-  r <- min_set_cover(x, y, xe, ye, complement = FALSE)
+  r <- max_support(x, y, xe, ye, complement = FALSE, ws = 1)
 
   expect_equal(r$sparsity, 1)
   expect_equal(r$alpha, 2)
+  expect_equal(r$support, 3)
+  expect_equal(r$r, c(1,2,3))
 
   x2 <- rbind(x, c(0,1,1,1))
   y2 <- c(y,0)
-  r2 <- min_set_cover(x2, y2, xe, ye, complement = FALSE)
+  r2 <- max_support(x2, y2, xe, ye, complement = FALSE, ws = 1)
 
   expect_equal(r2$sparsity, 2)
   expect_equal(r2$alpha, c(1,2))
+  expect_equal(r$support, 3)
+  expect_equal(r$r, c(1,2,3))
 })

@@ -94,9 +94,11 @@ Rcpp::List min_set_cover_cpp(Rcpp::NumericVector mi, Rcpp::NumericVector mj, Rcp
   int status = glp_mip_status(mip);
   double obj_val = glp_mip_obj_val(mip);
 
-  std::vector<int> alpha(d);
+  std::vector<int> alpha;
   for (int i = 1; i <= d; i++) {
-    alpha[i - 1] = glp_mip_col_val(mip, i);
+    if (glp_mip_col_val(mip, i) > 0) {
+      alpha.push_back(i);
+    }
   }
   int R = glp_mip_col_val(mip, d + 1);
 
@@ -106,7 +108,8 @@ Rcpp::List min_set_cover_cpp(Rcpp::NumericVector mi, Rcpp::NumericVector mj, Rcp
   // return value
   return Rcpp::List::create(
     Rcpp::Named("is_optimal") = status == GLP_OPT,
-    Rcpp::Named("R") = R,
+    Rcpp::Named("obj") = glp_mip_obj_val(mip),
+    Rcpp::Named("sparsity") = R,
     Rcpp::Named("alpha") = alpha
   );
 }

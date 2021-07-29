@@ -5,6 +5,24 @@
 
 using namespace Rcpp;
 
+// max_support_cpp
+Rcpp::List max_support_cpp(Rcpp::NumericVector mi, Rcpp::NumericVector mj, Rcpp::NumericVector mv, int n, int d, int s, int R_max, double ws);
+RcppExport SEXP _gcrules_glpk_max_support_cpp(SEXP miSEXP, SEXP mjSEXP, SEXP mvSEXP, SEXP nSEXP, SEXP dSEXP, SEXP sSEXP, SEXP R_maxSEXP, SEXP wsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type mi(miSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type mj(mjSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type mv(mvSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< int >::type d(dSEXP);
+    Rcpp::traits::input_parameter< int >::type s(sSEXP);
+    Rcpp::traits::input_parameter< int >::type R_max(R_maxSEXP);
+    Rcpp::traits::input_parameter< double >::type ws(wsSEXP);
+    rcpp_result_gen = Rcpp::wrap(max_support_cpp(mi, mj, mv, n, d, s, R_max, ws));
+    return rcpp_result_gen;
+END_RCPP
+}
 // min_set_cover_cpp
 Rcpp::List min_set_cover_cpp(Rcpp::NumericVector mi, Rcpp::NumericVector mj, Rcpp::NumericVector mv, int n, int d, int s);
 RcppExport SEXP _gcrules_glpk_min_set_cover_cpp(SEXP miSEXP, SEXP mjSEXP, SEXP mvSEXP, SEXP nSEXP, SEXP dSEXP, SEXP sSEXP) {
@@ -23,6 +41,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_gcrules_glpk_max_support_cpp", (DL_FUNC) &_gcrules_glpk_max_support_cpp, 8},
     {"_gcrules_glpk_min_set_cover_cpp", (DL_FUNC) &_gcrules_glpk_min_set_cover_cpp, 6},
     {NULL, NULL, 0}
 };

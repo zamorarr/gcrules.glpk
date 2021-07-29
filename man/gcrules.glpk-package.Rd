@@ -4,9 +4,17 @@
 \name{gcrules.glpk-package}
 \alias{gcrules.glpk}
 \alias{gcrules.glpk-package}
-\title{gcrules.glpk: What the Package Does (One Line, Title Case)}
+\title{gcrules.glpk: GLPK backend for Globally Consistent Rules (gcrules) package}
 \description{
-What the package does (one paragraph).
+GLPK backend for Globally Consistent Rules (gcrules) package.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/zamorarr/gcrules.glpk}
+  \item Report bugs at \url{https://github.com/zamorarr/gcrules.glpk/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Robert Zamora \email{zamora.rr@gmail.com}
